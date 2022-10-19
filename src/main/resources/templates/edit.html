@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Edit user</title>
+</head>
+<body>
+<h1>EDIT USER</h1>
+
+<form th:method="PATCH" th:action="@{/admin/{id}(id = ${user.getId()})}" th:object="${user}">
+
+
+    <label for="id">ID</label>
+    <input type="number" name="id" id="id" th:value="*{id}">
+    <br />
+    <br />
+    <label for="editFirstName">First name</label>
+    <input type="text" name="firstName" id="editFirstName" th:value="*{firstName}">
+    <br />
+    <br />
+    <label for="editLastName">Last name</label>
+    <input type="text" name="lastName" id="editLastName" th:value="*{lastName}">
+    <br />
+    <br />
+    <label for="editAge">Age</label>
+    <input type="number" name="age" id="editAge" th:value="*{age}">
+    <br />
+    <br />
+    <label for="editEmail">Email</label>
+    <input type="email" name="email" id="editEmail" th:value="*{email}">
+    <br />
+    <br />
+    <label for="editPassword">Password</label>
+    <input type="password" name="password" id="editPassword" th:value="*{userPassword}">
+    <br />
+    <br />
+    <label for="editRoles">Role</label>
+    <select name="roles" id="editRoles" th:value="*{roles}" required multiple size="2">
+        <option th:value="'ROLE_USER'">USER</option>
+        <option th:value="'ROLE_ADMIN'">ADMIN</option>
+    </select>
+    <br />
+    <br />
+    <button type="button">Close</button>
+    <button type="submit">Edit</button>
+
+</form>
+
+</body>
+</html>
